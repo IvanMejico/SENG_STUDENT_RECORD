@@ -1,0 +1,72 @@
+/* STYLES FOR PAGE HEADER*/
+
+body {
+    min-width: 1000px;
+}
+
+.page-header {
+    height: 50px;
+    background-color: #eb4426;
+    padding: 10px 0;
+    border-bottom: 4px solid #cd3b23;
+    display: block;
+}
+
+.inner-header {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.header-left {
+    float: left;
+    display: block;
+    height: 100%;
+}
+
+.button-container {
+    height: 100%;
+    float: left;
+    display: table;
+}
+
+.button-container button {
+    width: 50px;
+    height: 50px;
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #9f2b16;
+    border-radius: 6px;
+    border: 1px solid #9f2b16;
+    padding: 4px;
+    outline: none;
+}
+
+.button-container button:hover {
+    background-color: #7c2516;
+}
+
+.button-container button img {
+    width: 100%;
+}
+
+.title-container {
+    height: 100%;
+    display: table;
+    float: left;
+    margin-left: 10px;
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.title-container span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.title-container span i {
+    color: #e5b9b8;
+    letter-spacing: 2px;
+}
