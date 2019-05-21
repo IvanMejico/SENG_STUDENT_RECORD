@@ -2,3 +2,76 @@
 body {
     background-color: #d3cdcd;
 }
+
+.main-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.navbar {
+    float: left;
+    width: 300px;
+    background-color: #464646;
+    height: 100vh;
+}
+
+.navbar div h1 {
+    text-transform: uppercase;
+    text-align: center;
+    color: #010101;
+    background-color: #95a3a5;
+    font-size: 2em;
+    padding: 15px;
+}
+
+.main-container div:last-child {
+    display: block;
+    float: left;
+    /* margin: 30px; */
+    width: calc(100% - 300px);
+}
+
+.navbar div:nth-child(2) {
+    width: 100%;
+}
+
+.navbar div ul {
+    margin-top: 15px;
+    color: #cbc7c8;
+}
+
+.navbar div ul li {
+    padding: 15px 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.navbar div ul li:hover {
+    background-color: #272d2a;
+}
+
+.records-table {
+    width: 90%;
+    margin: 20px auto;
+    
+}
+
+.records-table tr th {
+    background-color: #1f6684;
+    text-align: left;padding: 20px 8px;
+    font-size: 1.1em;
+    color: #d8caca;
+}
+
+.records-table tr td {
+    padding: 10px 8px;
+    vertical-align: middle;
+}
+
+.records-table tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.records-table tr:nth-child(odd) {
+    background-color: #ebebeb;
+}
