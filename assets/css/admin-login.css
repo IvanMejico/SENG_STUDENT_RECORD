@@ -10,12 +10,17 @@ body {
     border-radius: 6px;    
 }
 
+.login-formgroup {
+    margin-bottom: 15px;
+}
+
 .admin-login-form label {
     color: #908686;
 }
 
 .admin-login-field {
     margin-top: 5px;
+    width: 100%;
 }
 
 .div-login-header {

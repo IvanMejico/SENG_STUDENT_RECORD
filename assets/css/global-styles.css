@@ -1,46 +1,3 @@
-/* CSS Reset */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
 /* FONT */
 
 .modal-container {
@@ -48,7 +5,7 @@ table {
 }
 
 .formgroup {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .modal-formgroup {
@@ -58,7 +15,6 @@ table {
 .modal-formgroup-admin {
 
 }
-
 
 .formgroup-header-text-grey {
 
@@ -75,7 +31,6 @@ table {
     border-radius: 6px;
     padding: 6px 0;
     text-align: center;
-    width: 100%;
     transition: .5s;
 }
 
@@ -85,71 +40,12 @@ table {
     border-color: rgb(108, 115, 146)
 }
 
-.field-search {
-
-}
-
-.field-filter-search {
-
-}
-
-.field-filter-course {
-
-}
-
-.field-form-input {
-
-}
-
-.field-idno {
-
-}
-
-.field-course {
-
-}
-
-.field-gender {
-
-}
-
 .btn {
     padding: 6px 10px;;
     border-radius: 5px;
     color: #f7f7f7;
-    text-align: center;
-}
-
-.btn-upload-photo {
-
-}
-
-.btn-add {
-
-}
-
-.btn-select-all {
-
-}
-
-.btn-save {
-
-}
-
-.btn-cancel {
-
-}
-
-.btn-reset {
-
-}
-
-.btn-delete {
-
-}
-
-.register-form-message {
-
+    border: 1px solid;
+    cursor: pointer;
 }
 
 .profile-picture-small {
@@ -161,5 +57,6 @@ table {
 }
 
 .profile-picture-large {
-
+    width: 120px;
+    height: 120px;
 }
