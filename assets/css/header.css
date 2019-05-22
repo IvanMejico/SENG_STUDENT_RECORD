@@ -93,7 +93,7 @@ body {
     border: 1px solid #505050;
     font-size: 1em;
     outline: none;
-    transition: .2s;
+    /* transition: .2s; */
 }
 
 .header-right button:hover {

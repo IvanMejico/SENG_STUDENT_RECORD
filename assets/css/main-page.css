@@ -24,6 +24,11 @@ body {
     padding: 15px;
 }
 
+.navbar div a {
+    text-decoration: none;
+    color: #cbc7c8;
+}
+
 .main-area {
     display: block;
     float: left;

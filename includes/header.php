@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Header</title>
+    <title>SEng Student Records</title>
     <link rel="stylesheet" href="assets/css/css-reset.css">
     <link rel="stylesheet" href="assets/css/global-styles.css">
     <link rel="stylesheet" href="assets/css/header.css">
@@ -30,8 +30,10 @@
                 // search box, else do nothing
                 if ($_SERVER['PHP_SELF'] == '/CRUDPROJECT_SENG/index.php') {
                     echo " <div class='header-right'>
-                                <input type='text' placeholder='Search Records'>
+                            <form action='index.php' method='GET'>
+                                <input type='text' name='search' placeholder='Search Records'>
                                 <button>Search</button>
+                            </form>
                             </div>";
                 }
             ?>

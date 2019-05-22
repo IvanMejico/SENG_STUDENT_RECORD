@@ -1,22 +1,42 @@
 <?php include('includes/config.php')?>
 <?php include('includes/header.php')?>
-<?php include('includes/classes/Student.php')?>
+<?php //include('includes/classes/Student.php')?>
 
 <?php
-    $student = new Student($con);
+    // $student = new Student($con);
 ?>
 <!-- navbar -->
+<?php
+    $queryString="";
+    $resultString="";
+    if (isset($_GET['course'])) {
+        $queryString = "SELECT * FROM students WHERE course = '" . $_GET['course'] . "'";
+    } else {
+        $queryString = "SELECT * FROM students";
+    }
+
+    if (isset($_GET['search'])) {
+        $searchString = $_GET['search'];
+        $queryString = "SELECT * FROM students WHERE course LIKE '%$searchString%'"
+        . "OR firstName LIKE '%$searchString%' OR middleName LIKE '%$searchString%'"
+        . "OR lastName LIKE '%$searchString%' LIMIT 10";
+    }
+    
+    $query = mysqli_query($con, $queryString);
+    $num_rows = mysqli_num_rows($query);
+?>
 <div class="main-container">
         <div class="navbar">
             <div><h1>programs</h1></div>
             <div>
                 <ul>
                     <!-- use pseudo-element for triangle for each link-->
-                    <li>BS Civil Engineering</li>
-                    <li>BS Electrical Engineering</li>
-                    <li>BS Electronics and Communication Engineering</li>
-                    <li>BS Computer Engineering</li>
-                    <li>BS Mechanical Engineering</li>
+                    <!-- add function to make selected menu active -->
+                    <a href="index.php?course=bsce"><li>BS Civil Engineering</li></a>
+                    <a href="index.php?course=bsee"><li>BS Electrical Engineering</li></a>
+                    <a href="index.php?course=bsece"><li>BS Electronics and Communication Engineering</li></a>
+                    <a href="index.php?course=bscpe"><li>BS Computer Engineering</li></a>
+                    <a href="index.php?course=bsme"><li>BS Mechanical Engineering</li></a>
                 </ul>
             </div>
         </div>
@@ -26,8 +46,23 @@
                 <!-- pagination -->
                 <div>
                     <div class="results-stat">
-                        <span>Showing 10 out of 230 entries</span>
+                        <!-- IF rows  >= 10 show 10
+                             ELSE IF rows >  -->
+                        <span><?php
+                            if ($num_rows) {
+                                if($num_rows >= 10) {
+                                    $resultString = "Showing 10 out of " . $num_rows;
+                                } else {
+                                    $resultString = "Showing " . $num_rows . " out of " . $num_rows;
+                                }
+                            } else {
+                                $resultString = "No records found!";
+                            }
+
+                            echo $resultString; ?>
+                            </span>
                     </div>
+                    <!-- I'll add pagination code later -->
                     <div class="pagination">
                         <a href="#">&laquo;</a>
                         <a href="#">1</a>
@@ -50,18 +85,22 @@
                         <th>Course</th>
                         <th>Gender</th>
                     </tr>
-                    <tr>
-                        <td><img src="assets/images/profile.svg" alt="" width="40px" height="40px"></td>
-                        <td>21H-2213</td>
-                        <td>Ivan</td>
-                        <td>Sotto</td>
-                        <td>Mejico</td>
-                        <td>BSCpE</td>
-                        <td>Male</td>
-                    </tr>
                     <?php 
-                        $query = "SELECT * FROM students";
-                        $student->getTable($query); 
+                        // $query = "SELECT * FROM students";
+                        // $student->getTable($query); 
+                        if ($num_rows) {
+                            while($row = mysqli_fetch_array($query)) {
+                                echo "<tr>";
+                                echo "<td><img src='" . $row['profilepicture'] . "' width='40px' height='40px'></td>"
+                                . "<td>" . $row['idno'] . "</td>"
+                                . "<td>" . $row['firstname'] . "</td>"
+                                . "<td>" . $row['middlename'] . "</td>"
+                                . "<td>" . $row['lastname'] . "</td>"
+                                . "<td>" . $row['course'] . "</td>"
+                                . "<td>" . $row['gender'] . "</td>";
+                                echo "</tr>";
+                            } 
+                        }
                     ?>
                 </table>
                      
