@@ -6,9 +6,10 @@ body {
 .admin-login-container {
     width: 350px;
     background-color: #fff;
-    margin: 300px auto;
+    /* margin: 300px auto; */
     border-radius: 6px;    
 }
+
 
 .login-formgroup {
     margin-bottom: 15px;
