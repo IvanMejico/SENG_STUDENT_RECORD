@@ -1,31 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Main Page</title>
-    <link rel="stylesheet" href="assets/css/css-reset.css">
-    <link rel="stylesheet" href="assets/css/global-styles.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/main-page.css">
-</head>
-<body>
-    <div class="page-header">
-        <div class="inner-header">
-            <div class="header-left">
-                <div class="button-container"><button><img src="assets/images/admin-with-cogwheels.svg" alt=""></button></div>
-                <div class="title-container"><span><u>MSC School of Engineering</u><br><i>STUDENT RECORD</i></span></div>
-            </div>
-            <div class="header-right">
-                <input type="text" placeholder="Search Records">
-                <button>Search</button>
-            </div>
-        </div>
-    </div>
+<?php include('includes/config.php')?>
+<?php include('includes/header.php')?>
+<?php include('includes/classes/Student.php')?>
 
-    <!-- navbar -->
-    <div class="main-container">
+<?php
+    $student = new Student($con);
+?>
+<!-- navbar -->
+<div class="main-container">
         <div class="navbar">
             <div><h1>programs</h1></div>
             <div>
@@ -78,28 +59,14 @@
                         <td>BSCpE</td>
                         <td>Male</td>
                     </tr>
-                    <tr>
-                        <td><img src="assets/images/profile.svg" alt="" width="40px" height="40px"></td>
-                        <td>21H-2213</td>
-                        <td>Ivan</td>
-                        <td>Sotto</td>
-                        <td>Mejico</td>
-                        <td>BSCpE</td>
-                        <td>Male</td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/images/profile.svg" alt="" width="40px" height="40px"></td>
-                        <td>21H-2213</td>
-                        <td>Ivan</td>
-                        <td>Sotto</td>
-                        <td>Mejico</td>
-                        <td>BSCpE</td>
-                        <td>Male</td>
-                    </tr>
+                    <?php 
+                        $query = "SELECT * FROM students";
+                        $student->getTable($query); 
+                    ?>
                 </table>
                      
             </div>
         </div>
     </div>
-</body>
-</html>
+
+<?php include('includes/footer.php')?>

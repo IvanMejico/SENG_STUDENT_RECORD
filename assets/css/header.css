@@ -36,9 +36,7 @@ body {
     display: table;
 }
 
-.button-container button {
-    width: 50px;
-    height: 50px;
+.button-container a {
     display: table-cell;
     vertical-align: middle;
     background-color: #9f2b16;
@@ -47,13 +45,13 @@ body {
     padding: 4px;
     outline: none;
 }
-
-.button-container button:hover {
-    background-color: #7c2516;
+.button-container a img {
+    width: 40px;
+    height: 40px;
 }
 
-.button-container button img {
-    width: 100%;
+.button-container a:hover {
+    background-color: #7c2516;
 }
 
 .title-container {
