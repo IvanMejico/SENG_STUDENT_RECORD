@@ -178,7 +178,8 @@
                                 . "<td>" . $row['gender'] . "</td>"
                                 . "<td>"
                                 . " <a href='admin_page.php?view=" . $row['idno'] . "'><img src='assets/images/eye.svg' alt='' width='18px' height='18px'></a>"
-                                . " <a href='admin_page.php?edit=" . $row['idno'] . "'><img src='assets/images/pencil-edit-button.svg' alt='' width='18px' height='18px'></a>"
+                                . "<button class='btn-edit'><img src='assets/images/pencil-edit-button.svg' alt='' width='18px' height='18px'></button>"
+                                // . " <a href='admin_page.php?edit=" . $row['idno'] . "' class='btn-edit'><img src='assets/images/pencil-edit-button.svg' alt='' width='18px' height='18px'></a>"
                                 . " <a href='admin_page.php?delete=" . $row['idno'] . "'><img src='assets/images/garbage.svg' alt='' width='18px' height='18px'></a>"
                                 . "</td>";
                                 echo "</tr>";
@@ -192,5 +193,6 @@
 
     </div>
 </div>
-
+<!-- INCLUDE MODAL HERE -->
+<?php include('modal.php')?>
 <?php include('includes/footer.php') ?>

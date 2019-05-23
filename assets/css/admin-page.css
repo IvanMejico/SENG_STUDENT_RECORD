@@ -269,3 +269,10 @@ body {
     vertical-align: middle;
     padding: 2px 10px;
 }
+
+.btn-edit {
+    border: 0;
+    background-color: inherit;
+    outline: none;
+    cursor: pointer;
+}
