@@ -19,17 +19,19 @@
         } 
 
         if (isset($_GET['cid'])) {
+            $tableResult = [];
             $queryString = "SELECT * FROM students WHERE course='" . $_GET['cid'] . "'";
             $query = mysqli_query($con, $queryString);
             $row_cnt = mysqli_num_rows($query);
-            echo json_encode($row_cnt);
+            // echo json_encode($row_cnt);
 
-            if($num_rows > 0) {
+            if($row_cnt > 0) {
                 // LOOP THROUGH ALL THE ROW DATA
                 // POPULATE ARRAY WITH ROW DATA
                 while($row = mysqli_fetch_array($query)) {
-                    $tableResult
+                    array_push($tableResult, $row);
                 }
+                echo json_encode($tableResult);
             }
         }
     }

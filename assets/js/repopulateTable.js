@@ -47,7 +47,7 @@ function searchData(course) {
     xhr.onload = function () {
         // REPOPULATE TABLE
         // var tableData = JSON.parse(this.responseText);
-        console.log(this.responseText);
+        console.log(JSON.parse(this.responseText));
     }
     xhr.send();
 }
