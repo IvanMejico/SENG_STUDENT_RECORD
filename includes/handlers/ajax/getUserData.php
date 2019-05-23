@@ -1,7 +1,7 @@
 <?php
     include('../../config.php');
 
-    echo "connected!";
+    // echo "connected!";
 
     if ($_SERVER['REQUEST_METHOD'] == "GET") {
         if (isset($_GET['sid'])) {
@@ -10,7 +10,9 @@
             $num_rows = mysqli_num_rows($query);
             
             if($num_rows > 0) {
-                echo "record found!";
+                $row = mysqli_fetch_array($query);
+                echo json_encode($row);
+                // echo "record found!";
             } else {
                 echo "no record found!";
             }
