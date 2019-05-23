@@ -27,7 +27,7 @@
             }
             // print_r($_POST);
         } else {
-            echo "not set";
+            // echo "not set";
         }
 
     }
@@ -133,22 +133,22 @@
         <div class="manage-header-container">
             <h1>Manage Students</h1>
             <div>
-                <button class="btn btn-selectall"><img src="assets/images/task-complete.svg" alt="" width="20px" height="20px"> <span>Select all</span></button>
-                <button class="btn btn-delete"><img src="assets/images/minus-sign-inside-a-black-circle.svg" alt="" width="20px" height="20px"><span>Delete</span></button>
+                <button class="btn btn-selectall" id="btn-selectall"><img src="assets/images/task-complete.svg" alt="" width="20px" height="20px"> <span>Select all</span></button>
+                <button class="btn btn-delete" id="btn-delete"><img src="assets/images/minus-sign-inside-a-black-circle.svg" alt="" width="20px" height="20px"><span>Delete</span></button>
             </div>
             <div>
-                <select name="course" id="" class="field-filter-course">
+                <select name="course" id="dropdown-course" class="field-filter-course">
                     <option value="bsce">BS Civil Engineering</option>
                     <option value="bsee">BS Electrical Engineering</option>
                     <option value="bsece">BS Electronics Engineering</option>
                     <option value="bscpe">BS Computer Engineering</option>
                     <option value="bsme">BS Mechanical Engineering</option>
                 </select>
-                <input type="text" class="field-filter-search" placeholder="Search">
+                <input type="text" id="filter-search" class="field-filter-search" placeholder="Search">
             </div>
         </div>
         <div>
-            <table class="admin-table">
+            <table class="admin-table" id="admin-table">
                 <tr>
                     <th></th>
                     <th></th>
@@ -192,6 +192,7 @@
         </div>
 
     </div>
+    <script src="assets/js/repopulateTable.js"></script>
 </div>
 <!-- INCLUDE MODAL HERE -->
 <?php include('modal.php')?>
