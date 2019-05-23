@@ -2,20 +2,14 @@
 var modal = document.getElementsByClassName('container')[0];
 // Get open modal button
 // var modalBtn = document.getElementById('modalBtn');
-var modalBtn = document.getElementsByClassName('btn-edit');
+var modalEditBtn = document.getElementsByClassName('btn-edit');
 // Get close button
 var cancelBtn = document.getElementsByClassName('btn-cancel')[0];
 
 // Listen for open click
-modalBtn[0].addEventListener('click', openModal);
-modalBtn[1].addEventListener('click', openModal);
-modalBtn[2].addEventListener('click', openModal);
-modalBtn[3].addEventListener('click', openModal);
-modalBtn[4].addEventListener('click', openModal);
-modalBtn[5].addEventListener('click', openModal);
-modalBtn[6].addEventListener('click', openModal);
-modalBtn[7].addEventListener('click', openModal);
-
+for (let i=0; i < modalEditBtn.length; i++) {
+    modalEditBtn[i].addEventListener('click', openModal);
+}
 
 // Listen for close click
 cancelBtn.addEventListener('click', closeModal);
@@ -25,6 +19,9 @@ window.addEventListener('click', clickOutside);
 // Function to open modal
 function openModal() {
     modal.style.display = 'block';
+
+    sid = this.getAttribute('sid');
+    populateForm(sid);
 }
 
 // Function to close modal
@@ -37,4 +34,16 @@ function clickOutside(e) {
     if(e.target == modal){
         modal.style.display = 'none'
     }
+}
+
+function populateForm(sid) {
+    var xhr = new XMLHttpRequest();
+    console.log(sid);
+    xhr.open('GET', 'includes/handlers/ajax/getUserData.php?sid='+sid, true);
+
+    xhr.onload = function(){
+        console.log(this.responseText);
+    }
+
+    xhr.send();
 }

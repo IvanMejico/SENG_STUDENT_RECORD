@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/admin-page.css">
     <link rel="stylesheet" href="assets/css/main-page.css">
+    <link rel="stylesheet" href="assets/css/modal-styles.css">
 </head>
 <body>
     <div class="page-header">
