@@ -31,6 +31,21 @@
         }
     }
 ?>
+
+<?php 
+    // FOR DELETING DATA FROM THE DATABASE
+    IF ($_SERVER['REQUEST_METHOD'] == "GET") {
+        if (isset($_GET['delete'])) {
+            echo $studentId = $_GET['delete'];
+            $queryString = "DELETE FROM students WHERE idno='$studentId'";
+		    if(mysqli_query($con, $queryString) == TRUE) {
+                $message = "Student no. $studentId deleted";
+		    } else {
+                $message = "Student no. $studentId not deleted";
+            }
+        }
+    }
+?>
 <div class="admin-main-container">
     <div class="register-container">
         <h1>Register Student</h1>
@@ -147,9 +162,6 @@
                 <?php 
                     // $query = "SELECT * FROM students";
                     // $student->getTable($query); 
-
-
-
                     
                     if ($num_rows > 0) {
                         $i = 0;
