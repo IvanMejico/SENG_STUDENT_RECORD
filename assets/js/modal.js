@@ -7,7 +7,7 @@ var modalEditBtn = document.getElementsByClassName('btn-edit');
 // Get cancel button
 var cancelBtn = document.getElementsByClassName('btn-cancel')[0];
 // Get save button
-var saveBtn = document.getElementsByName('btn-save')[0]
+var saveBtn = document.getElementsByName('modal-btn-save')[0];
 
 
 // Listen for open click
@@ -25,6 +25,8 @@ var gender = document.getElementsByName('modal-gender')[0];
 
 // Listen for close click
 cancelBtn.addEventListener('click', closeModal);
+// Listen for save click
+saveBtn.addEventListener('click', sumbitForm);
 // Listen for outside click
 window.addEventListener('click', clickOutside);
 
@@ -50,7 +52,7 @@ function clickOutside(e) {
 
 function populateForm(sid) {
     var xhr = new XMLHttpRequest();
-    console.log(sid);
+    // console.log(sid);
     xhr.open('GET', 'includes/handlers/ajax/getUserData.php?sid=' + sid, true);
 
     xhr.onload = function () {
@@ -63,8 +65,37 @@ function populateForm(sid) {
         course.value = user['course'];
         gender.value = user['gender'];
 
-        console.log(user);
+        // console.log(user);
     }
-
     xhr.send();
+}
+
+function sumbitForm(sid) {
+    //get form data
+    //retrieve record by id
+    //save record to database
+    //populated table with new data
+
+    var idno = studentId.value;
+    var fname = firstName.value;
+    var mname = middleName.value;
+    var lname = lastName.value;
+    var crse = course.value;
+    var gndr = gender.value;
+
+    var data = 'idno=' + idno + '&firstname=' + fname + '&middlename=' + mname 
+                + '&lastname=' + lname + '&course=' + crse +'&gender=' + gndr;
+
+    var xhr = new XMLHttpRequest();
+    // console.log(sid);
+    xhr.open('POST', 'includes/handlers/ajax/saveUserData.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onload = function () {
+        document.getElementsByClassName('register-form-message')[0].innerHTML = this.responseText;
+        // console.log(user);
+    }
+    xhr.send(data);
+    
+    console.log('submitted!');
+    closeModal();
 }

@@ -16,19 +16,20 @@
             $gender = $_POST['gender'];
             $course = $_POST['course'];
             $profpic = "assets/images/profile.svg";
+            
+            $queryString = "INSERT INTO students (idno, firstname, middlename, lastname, gender, course, profilepicture) 
+                            VALUES ('$idno', '$firstname', '$middlename', '$lastname', '$gender', '$course', '$profpic');";
+            if(mysqli_query($con, $queryString) == TRUE) {
+                $message = "Student added to the database.";
+            } else {
+                // echo "not added";
+                // echo "";
+            }
             // print_r($_POST);
         } else {
             echo "not set";
         }
 
-        $queryString = "INSERT INTO students (idno, firstname, middlename, lastname, gender, course, profilepicture) 
-                        VALUES ('$idno', '$firstname', '$middlename', '$lastname', '$gender', '$course', '$profpic');";
-        if(mysqli_query($con, $queryString) == TRUE) {
-            $message = "Student added to the database.";
-        } else {
-            echo "not added";
-            // echo "";
-        }
     }
 ?>
 
