@@ -9,10 +9,12 @@
 <?php
     $queryString="";
     $resultString="";
-    if (isset($_GET['course'])) {
-        $queryString = "SELECT * FROM students WHERE course = '" . $_GET['course'] . "'";
-    } else {
-        $queryString = "SELECT * FROM students";
+    if ($_SERVER['REQUEST_METHOD'] == "GET") {
+        if (isset($_GET['course'])) {
+            $queryString = "SELECT * FROM students WHERE course = '" . $_GET['course'] . "'";
+        } else {
+            $queryString = "SELECT * FROM students";
+        }
     }
 
     if (isset($_GET['search'])) {
