@@ -21,7 +21,7 @@
         $searchString = $_GET['search'];
         $queryString = "SELECT * FROM students WHERE course LIKE '%$searchString%'"
         . "OR firstName LIKE '%$searchString%' OR middleName LIKE '%$searchString%'"
-        . "OR lastName LIKE '%$searchString%' LIMIT 10";
+        . "OR lastName LIKE '%$searchString%'";
     }
     
     $query = mysqli_query($con, $queryString);
@@ -53,9 +53,9 @@
                         <span><?php
                             if ($num_rows) {
                                 if($num_rows >= 10) {
-                                    $resultString = "Showing 10 out of " . $num_rows;
+                                    $resultString = "Showing 10 out of " . $num_rows . " entries";
                                 } else {
-                                    $resultString = "Showing " . $num_rows . " out of " . $num_rows;
+                                    $resultString = "Showing " . $num_rows . " out of " . $num_rows . " entries";
                                 }
                             } else {
                                 $resultString = "No records found!";
@@ -90,17 +90,21 @@
                     <?php 
                         // $query = "SELECT * FROM students";
                         // $student->getTable($query); 
-                        if ($num_rows) {
+                        if ($num_rows > 0) {
+                            $i=0;
                             while($row = mysqli_fetch_array($query)) {
-                                echo "<tr>";
-                                echo "<td><img src='" . $row['profilepicture'] . "' width='40px' height='40px'></td>"
-                                . "<td>" . $row['idno'] . "</td>"
-                                . "<td>" . $row['firstname'] . "</td>"
-                                . "<td>" . $row['middlename'] . "</td>"
-                                . "<td>" . $row['lastname'] . "</td>"
-                                . "<td>" . $row['course'] . "</td>"
-                                . "<td>" . $row['gender'] . "</td>";
-                                echo "</tr>";
+                                if($i < 10) {
+                                    echo "<tr>";
+                                    echo "<td><img src='" . $row['profilepicture'] . "' width='40px' height='40px'></td>"
+                                    . "<td>" . $row['idno'] . "</td>"
+                                    . "<td>" . $row['firstname'] . "</td>"
+                                    . "<td>" . $row['middlename'] . "</td>"
+                                    . "<td>" . $row['lastname'] . "</td>"
+                                    . "<td>" . $row['course'] . "</td>"
+                                    . "<td>" . $row['gender'] . "</td>";
+                                    echo "</tr>";
+                                    $i++;
+                                }
                             } 
                         }
                     ?>

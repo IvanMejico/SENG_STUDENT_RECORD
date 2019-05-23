@@ -62,13 +62,14 @@ body {
 
 .records-table tr th {
     background-color: #1f6684;
-    text-align: left;padding: 20px 8px;
+    text-align: left;
+    padding: 10px 8px;
     font-size: 1.1em;
     color: #d8caca;
 }
 
 .records-table tr td {
-    padding: 10px 8px;
+    padding: 5px 8px;
     vertical-align: middle;
 }
 

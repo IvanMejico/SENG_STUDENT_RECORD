@@ -1,6 +1,8 @@
 <?php include('includes/header.php')?>
 <?php include('includes/config.php')?>
+
 <?php
+    // FOR INSERTING DATA TO THE DATABASE
     $message = "";
     // Add some validation later on
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -77,8 +79,29 @@
         </div>
     </div>
 
+    <?php
+        // FOR RETRIEVING DATA FROM THE DATABASE
+        $resultString = "";
+        $queryString = "SELECT * FROM students";
+        $query = mysqli_query($con, $queryString);
+        $num_rows = mysqli_num_rows($query);
+    ?>
+
     <div class="admin-pagination-container">
-        <span>Showing 10 out of 230 entries</span>
+        <span>
+        <?php
+            if ($num_rows > 0) {
+                if($num_rows >= 10) {
+                    $resultString = "Showing 10 out of " . $num_rows . " entries";
+                } else {
+                    $resultString = "Showing " . $num_rows . " out of " . $num_rows . " entries";
+                }
+            } else {
+                $resultString = "No records found!";
+            }
+
+            echo $resultString; ?>
+        </span>
         <div class="admin-pagination">
             <a href="#">&laquo;</a>
             <a href="#">1</a>
@@ -121,51 +144,37 @@
                     <th>Gender</th>
                     <th>Actions</th>
                 </tr>
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td><img src="assets/images/profile.svg" alt="" width="30px" height="30px"></td>
-                    <td>21h-1192</td>
-                    <td>Ivan</td>
-                    <td>Sotto</td>
-                    <td>Mejico</td>
-                    <td>BSCpE</td>
-                    <td>Male</td>
-                    <td>
-                        <a href=""><img src="assets/images/eye.svg" alt="" width="18px" height="18px"></a>
-                        <a href=""><img src="assets/images/pencil-edit-button.svg" alt="" width="18px" height="18px"></a>
-                        <a href=""><img src="assets/images/garbage.svg" alt="" width="18px" height="18px"></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td><img src="assets/images/profile.svg" alt="" width="30px" height="30px"></td>
-                    <td>21h-1192</td>
-                    <td>Ivan</td>
-                    <td>Sotto</td>
-                    <td>Mejico</td>
-                    <td>BSCpE</td>
-                    <td>Male</td>
-                    <td>
-                        <a href=""><img src="assets/images/eye.svg" alt="" width="18px" height="18px"></a>
-                        <a href=""><img src="assets/images/pencil-edit-button.svg" alt="" width="18px" height="18px"></a>
-                        <a href=""><img src="assets/images/garbage.svg" alt="" width="18px" height="18px"></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="" id=""></td>
-                    <td><img src="assets/images/profile.svg" alt="" width="30px" height="30px"></td>
-                    <td>21h-1192</td>
-                    <td>Ivan</td>
-                    <td>Sotto</td>
-                    <td>Mejico</td>
-                    <td>BSCpE</td>
-                    <td>Male</td>
-                    <td>    
-                        <a href=""><img src="assets/images/eye.svg" alt="" width="18px" height="18px"></a>
-                        <a href=""><img src="assets/images/pencil-edit-button.svg" alt="" width="18px" height="18px"></a>
-                        <a href=""><img src="assets/images/garbage.svg" alt="" width="18px" height="18px"></a>
-                    </td>
-                </tr>
+                <?php 
+                    // $query = "SELECT * FROM students";
+                    // $student->getTable($query); 
+
+
+
+                    
+                    if ($num_rows > 0) {
+                        $i = 0;
+                        while($row = mysqli_fetch_array($query)) {
+                            if($i < 10) {
+                                echo "<tr>";
+                                echo "<td><input type='checkbox' name='checkbox' id='checkbox'></td>";
+                                echo "<td><img src='" . $row['profilepicture'] . "' width='30px' height='30px'></td>"
+                                . "<td>" . $row['idno'] . "</td>"
+                                . "<td>" . $row['firstname'] . "</td>"
+                                . "<td>" . $row['middlename'] . "</td>"
+                                . "<td>" . $row['lastname'] . "</td>"
+                                . "<td>" . $row['course'] . "</td>"
+                                . "<td>" . $row['gender'] . "</td>"
+                                . "<td>"
+                                . " <a href='admin_page.php?view=" . $row['idno'] . "'><img src='assets/images/eye.svg' alt='' width='18px' height='18px'></a>"
+                                . " <a href='admin_page.php?edit=" . $row['idno'] . "'><img src='assets/images/pencil-edit-button.svg' alt='' width='18px' height='18px'></a>"
+                                . " <a href='admin_page.php?delete=" . $row['idno'] . "'><img src='assets/images/garbage.svg' alt='' width='18px' height='18px'></a>"
+                                . "</td>";
+                                echo "</tr>";
+                                $i++;
+                            }
+                        }
+                    }
+                ?>
             </table>
         </div>
 
