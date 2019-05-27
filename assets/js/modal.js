@@ -1,19 +1,11 @@
 // Get modal element
 // var modal = document.getElementsByClassName('container')[0];
 var modal = document.getElementById('m1');
-// Get open modal button
-// var modalBtn = document.getElementById('modalBtn');
-var modalEditBtn = document.getElementsByClassName('btn-edit');
+
 // Get cancel button
 var cancelBtn = document.getElementsByClassName('btn-cancel')[0];
 // Get save button
 var saveBtn = document.getElementsByName('modal-btn-save')[0];
-
-
-// Listen for open click
-for (let i = 0; i < modalEditBtn.length; i++) {
-    modalEditBtn[i].addEventListener('click', openModal);
-}
 
 // GET THE MODAL FORM ELEMENTS
 var studentId = document.getElementsByName('modal-idno')[0];

@@ -2,59 +2,60 @@ body {
     background-color: #95a3a5;
 }
 
-.admin-main-container {
+.admin-content {
     width: 1000px;
     margin: 50px auto;
     overflow: hidden;
 }
 
-.register-container {
+.admin-content__register-form {
     background-color: #c4dee9;
     padding-bottom: 20px;
 }
 
-.register-container h1 {
+.admin-content__register-form h1 {
     padding: 6px 15px;
+    margin-bottom: 15px;
     background-color: #0072bc;
     color: #fff;
     font-size: 1.3em;
     font-weight: 800;
 }
 
-.register-container > div {
+.admin-content__register-form > div {
     width: 80%;
     padding-top: 10px;
     margin: auto;
 }
 
-.register-form {
+.admin-content__register-form form {
     overflow: hidden;
 }
 
-.register-form div {
+.admin-content__register-form form div {
     display: inline-block;
 }
 
-.register-form div:nth-child(1) {
+.admin-content__register-form form div:nth-child(1) {
     width: 120px;
     margin-right: 20px;
     float: left;
 }
 
-.register-form div:nth-child(2) {
+.admin-content__register-form form div:nth-child(2) {
     width: 450px;
     margin: 0 5px;
     box-sizing: content-box;
     float: left;
 }
 
-.register-form div:nth-child(3) {
+.admin-content__register-form form div:nth-child(3) {
     width: 200px;
     overflow: hidden;
     margin-top: 170px;
 }
 
-.register-form div:nth-child(3) button {
+.admin-content__register-form form div:nth-child(3) button {
     float: right;
     font-size: 1em;
 }
@@ -70,12 +71,12 @@ body {
     background-color: #759cad;
 }
 
-.btn-add {
+.btn-register-student {
     border-color: #2cbff3;
     background-color: #2cbff3;    
 }
 
-.btn-add:hover {
+.btn-register-student:hover {
     background-color: #23a4d3; 
 }
 
@@ -90,6 +91,7 @@ body {
 
 .register-form-message {
     margin: 10px 30px;
+    /* display: none; */
     display: block;
     padding: 10px;
     color: #f7ebeb;
@@ -97,13 +99,14 @@ body {
     border-radius: 6px;
     font-size: 1.2em;
     text-align: center;
+    transition: 1s;
 }
 
 .manage-container {
     background-color: #ffffff;
 }
 
-.manage-header-container {
+.manage-container__header {
     padding: 6px 15px;
     background-color: #ebebeb;
     color: #796564;
@@ -112,19 +115,19 @@ body {
     overflow: hidden;
 }
 
-.manage-header-container h1 {
+.manage-container__header h1 {
     vertical-align: middle;
     margin: 5px 30px 0 0;
     float: left;
 }
 
-.manage-header-container div:first-child {
+.manage-container__header div:first-child {
     display: inline-block;
     height: 100%;
     width: 400px;
 }
 
-.manage-header-container div:last-child {
+.manage-container__header div:last-child {
     float: right;
     overflow: hidden;
 }
@@ -139,7 +142,7 @@ body {
     float: left;
 }
 
-.btn-delete {
+.btn-delete-selected {
     width: 92px;
     height: 35px;
     background-color: #ec4532;
@@ -149,28 +152,19 @@ body {
     float: left;
 }
 
-.btn-selectall span, .btn-delete span {
+.btn-selectall span, .btn-delete-selected span {
     display: table-cell;
     vertical-align: middle;
     padding: 1px 0 0 7px;
 }
 
-.btn-selectall img, .btn-delete img {
+.btn-selectall img, .btn-delete-selected img {
     display: table-cell;
     vertical-align: middle;
     float: left;
 }
 
-
-.btn-save {
-
-}
-
-.btn-cancel {
-
-}
-
-.field-filter-search {
+.text-filter-search {
     padding: 8px;
     color: #928380;
     background-color: #cebfb2;
@@ -270,9 +264,16 @@ body {
     padding: 2px 10px;
 }
 
-.btn-edit {
+.btn-edit, 
+.btn-delete {
     border: 0;
     background-color: inherit;
     outline: none;
     cursor: pointer;
+    padding: 0; 
+    margin: 0 5px;  
+}
+
+.btn-view {
+    margin-right: 8px;
 }

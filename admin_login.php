@@ -1,3 +1,5 @@
+<?php include('includes/config.php')?>
+<?php include('includes/handlers/login-handler.php')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,19 +23,19 @@
             </div>
             <div class="div-login-body">
                 <div>
-                    <!-- I'll probably use ajax here -->
+                    <!-- I'll probably use ajax here for input validation-->
                     <span class="login-form-message">Incorrect username or password.</span>
-                    <form action="" class="admin-login-form">    
+                    <form action="" class="admin-login-form" method="POST">    
                         <p class="login-formgroup">
                             <label for="">Username:</label><br>
                             <input type="text" class="field admin-login-field" name="username">
                         </p>
                         <p class="formgroup">
                             <label for="">Password:</label><br>
-                            <input type="password" class="field admin-login-field" name="password">
+                            <input type="password" class="field admin-login-field" name="password" >
                         </p>
                         <p class="formgroup">
-                        <button type="submit" class="btn btn-login">Log in</button>
+                        <button type="submit" class="btn btn-login" name="btn-login">Log in</button>
                         </p>
                     </form>
                 </div>

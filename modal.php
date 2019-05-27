@@ -1,5 +1,4 @@
     <!-- <button id="modalBtn" class="button">Click Here</button> -->
-    
     <div class="container" id="m1">
         <div class="modal-container">
             <div class="modal-header-container">
@@ -38,4 +37,3 @@
             </div>
         </div>
     </div>
-    <script src="assets/js/modal.js"></script>
